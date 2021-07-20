@@ -29,7 +29,7 @@
                     <div class="space20">&nbsp;</div>
                     <div class="form-block">
                         {{-- <label for="email">Email address*</label> --}}
-                        <input type="text" id="email" name="full_name" placeholder="Email" required>
+                        <input type="text" id="email" name="full_name" placeholder="Tài khoản" required>
                     </div>
                     <div class="form-block">
                         {{-- <label for="password">Password*</label> --}}

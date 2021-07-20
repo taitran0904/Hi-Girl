@@ -27,7 +27,6 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="beta-products-list">
-                        <h4>New Products</h4>
                         <div class="beta-products-details">
                             <p class="pull-left">{{count($pro_type)}} sản phẩm</p>
                             <div class="clearfix"></div>
@@ -35,29 +34,29 @@
 
                         <div class="row">
                             @foreach($pro_type as $pro)
-                            <div class="col-sm-4">
+                            <div style="padding-bottom: 50px" class="col-sm-4">
                                 <div class="single-item">
                                     @if(@$pro->promotion_price != 0)
-                                        <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div>
+                                        <div class="ribbon-wrapper"><div style="background: #F4989D;" class="ribbon sale">Sale</div>
                                         </div>
                                     @endif
                                     <div class="single-item-header">
-                                        <a href="{{route('chi-tiet-san-pham',$pro->id)}}"><img src="source/image/product/{{$pro->image}}" alt="" height="250px"></a>
+                                        <a href="{{route('chi-tiet-san-pham',$pro->id)}}"><img style="width: 100%" src="source/image/product/{{$pro->image}}" alt="" height="250px"></a>
                                     </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">{{$pro->name}}</p>
-                                        <p class="single-item-price" style="font-size: 18px">
+                                    <div style="margin-bottom: 20px" class="single-item-body">
+                                        <p style="font-weight: bold" class="single-item-title">{{$pro->name}}</p>
+                                        <p class="single-item-price" style="font-size: 18px; font-weight: bold"">
                                             @if($pro->promotion_price == 0)
-                                                <span class="flash-sale">{{number_format($pro->unit_price)}} đồng</span>
+                                                <span class="flash-sale">{{number_format($pro->unit_price)}} đ</span>
                                             @else
-                                                <span class="flash-sale">{{number_format($pro->promotion_price)}} đồng</span>
-                                                <span class="flash-del">{{number_format($pro->unit_price)}} đồng</span>
+                                                <span class="flash-sale">{{number_format($pro->promotion_price)}} đ</span>
+                                                <span class="flash-del">{{number_format($pro->unit_price)}} đ</span>
                                             @endif
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                        <a style="margin-right: 10px; border-radius: 10px;border: 1px solid #D67C94; background: white;" class="add-to-cart pull-left" href="{{route('themgiohang',$pro->id)}}"><i style="color: #D67C94" class="fa fa-plus"></i></a>
+                                        <a style="background: white;color: #D67C94;font-weight: bold;border-radius: 10px;border: 1px solid #D67C94;outline: none;" class="btn btn-primary" href="{{route('chi-tiet-san-pham', $pro->id)}}">Chi tiết sản phẩm</a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -76,29 +75,30 @@
                         </div>
                         <div class="row">
                             @foreach($product_other as $pro_other)
-                                <div class="col-sm-4">
+                                <div style="padding-bottom: 50px" class="col-sm-4">
                                     <div class="single-item">
                                         @if($pro_other->promotion_price != 0)
-                                            <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div>
+                                            <div class="ribbon-wrapper">
+                                                <div style="background: #F4989D;" class="ribbon sale">Sale</div>
                                             </div>
                                         @endif
                                         <div class="single-item-header">
-                                            <a href="product.html"><img src="source/image/product/{{$pro_other->image}}" alt="" height="250px"></a>
+                                            <a href="{{route('chi-tiet-san-pham',$pro_other->id)}}"><img style="width: 100%" src="source/image/product/{{$pro_other->image}}" alt="" height="250px"></a>
                                         </div>
-                                        <div class="single-item-body">
-                                            <p class="single-item-title">{{$pro->name}}</p>
-                                            <p class="single-item-price" style="font-size: 18px">
-                                                @if($pro->promotion_price == 0)
-                                                    <span class="flash-sale">{{number_format($pro_other->unit_price)}} đồng</span>
+                                        <div style="margin-bottom: 20px" class="single-item-body">
+                                            <p style="font-weight: bold" class="single-item-title">{{$pro_other->name}}</p>
+                                            <p class="single-item-price" style="font-size: 18px; font-weight: bold">
+                                                @if($pro_other->promotion_price == 0)
+                                                    <span class="flash-sale">{{number_format($pro_other->unit_price)}} đ</span>
                                                 @else
-                                                    <span class="flash-sale">{{number_format($pro_other->promotion_price)}} đồng</span>
-                                                    <span class="flash-del">{{number_format($pro_other->unit_price)}} đồng</span>
+                                                    <span class="flash-sale">{{number_format($pro_other->promotion_price)}} đ</span>
+                                                    <span class="flash-del">{{number_format($pro_other->unit_price)}} đ</span>
                                                 @endif
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                            <a style="margin-right: 10px; border-radius: 10px;border: 1px solid #D67C94; background: white;" class="add-to-cart pull-left" href="{{route('themgiohang',$pro_other->id)}}"><i style="color: #D67C94" class="fa fa-plus"></i></a>
+                                            <a style="background: white;color: #D67C94;font-weight: bold;border-radius: 10px;border: 1px solid #D67C94;outline: none;" class="btn btn-primary" href="{{route('chi-tiet-san-pham', $pro_other->id)}}">Chi tiết sản phẩm</a>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>

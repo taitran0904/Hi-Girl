@@ -11,10 +11,10 @@
                 <ul class="top-details menu-beta l-inline">
                     @if(Auth::check())
                         @if(Auth::user()->status == 1)
-                        <li><a href="{{ route('admin') }}">Quản lý</a></li>
+                        <li><a href="{{ route('admin') }}"><i class="fa fa-gear fa-fw"></i> Quản lý</a></li>
                         @endif
                         <li><a href=""><i class="fa fa-user"></i>{{ Auth::user()->full_name }}</a></li>
-                        <li><a href="{{ route('dangxuat') }}"><i class="fa fa-sign-out-alt"></i>Đăng xuất</a></li>
+                        <li><a href="{{ route('dangxuat') }}"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a></li>
                     @else
                         <li><a href="{{ route('dangky') }}">Đăng kí</a></li>
                         <li><a href="{{ route('dangnhap') }}">Đăng nhập</a></li>
@@ -53,7 +53,7 @@
                                     <a class="pull-left" href="#"><img src="source/image/product/{{$pro_cart['item']['image']}}" alt=""></a>
                                     <div class="media-body">
                                         <span class="cart-item-title">{{$pro_cart['item']['name']}}</span>
-                                        <span class="cart-item-amount">{{$pro_cart['qty']}}*<span>@if($pro_cart['item']['promotion_price']!=0) {{number_format($pro_cart['item']['promotion_price']) }} @else {{number_format($pro_cart['item']['unit_price'])}} @endif đ</span></span>
+                                        <span class="cart-item-amount">{{$pro_cart['qty']}} x <span>@if($pro_cart['item']['promotion_price']!=0) {{number_format($pro_cart['item']['promotion_price']) }} @else {{number_format($pro_cart['item']['unit_price'])}} @endif đ</span></span>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="{{route('gioi-thieu')}}">Giới thiệu</a></li>
+                    <li><a href="{{route('gioi-thieu')}}">BLOG Làm đẹp</a></li>
                     <li><a href="{{route('lien-he')}}">Liên hệ</a></li>
                 </ul>
                 <div class="clearfix"></div>

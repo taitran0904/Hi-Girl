@@ -42,7 +42,9 @@ class PageController extends Controller
     {
         $product = Product::where('id', $request->id)->first();
         $similar_product = Product::where('id_type', $product->id_type)->paginate(6);
-        return view('page.product_detail', compact('product', 'similar_product'));
+        $sale_product = Product::where('promotion_price', '<>', 0)->paginate(4);
+        $new_product = Product::where('new', '<>', 0)->paginate(4);
+        return view('page.product_detail', compact('product', 'similar_product', 'sale_product','new_product'));
     }
     public function getContacts()
     {

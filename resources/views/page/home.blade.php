@@ -48,16 +48,16 @@
                             <div class="col-sm-3">
                                 <div class="single-item">
                                     @if($newproduct->promotion_price != 0)
-                                    <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div>
+                                    <div class="ribbon-wrapper"><div style="background: #F4989D;" class="ribbon sale">Sale</div>
                                     </div>
                                     @endif
 
                                     <div class="single-item-header">
-                                        <a href="{{route('chi-tiet-san-pham', $newproduct->id)}}"><img src="source/image/product/{{$newproduct->image}}" alt="" height="250px"></a>
+                                        <a href="{{route('chi-tiet-san-pham', $newproduct->id)}}"><img style="width: 100%" src="source/image/product/{{$newproduct->image}}" alt="" height="250px"></a>
                                     </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">{{$newproduct->name}}</p>
-                                        <p class="single-item-price" style="font-size: 18px">
+                                    <div style="margin-bottom: 20px" class="single-item-body">
+                                        <p style="font-weight: bold" class="single-item-title">{{$newproduct->name}}</p>
+                                        <p class="single-item-price" style="font-size: 18px; font-weight: bold">
                                             @if($newproduct->promotion_price == 0)
                                                 <span class="flash-sale">{{number_format($newproduct->unit_price)}} đ</span>
                                             @else
@@ -67,15 +67,15 @@
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="{{route('themgiohang',$newproduct->id)}}"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                        <a style="margin-right: 10px; border-radius: 10px;border: 1px solid #D67C94; background: white;" class="add-to-cart pull-left" href="{{route('themgiohang',$newproduct->id)}}"><i style="color: #D67C94" class="fa fa-plus"></i></a>
+                                        <a style="background: white;color: #D67C94;font-weight: bold;border-radius: 10px;border: 1px solid #D67C94;outline: none;" class="btn btn-primary" href="{{route('chi-tiet-san-pham', $newproduct->id)}}">Chi tiết sản phẩm</a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
                         </div>
-                        <div>{{$new_product->links()}}</div>
+                        <div>{{$new_product->links('pagination::bootstrap-4')}}</div>
                     </div> <!-- .beta-products-list -->
 
                     <div class="space50">&nbsp;</div>
@@ -88,16 +88,16 @@
                         </div>
                         <div class="row">
                             @foreach($sale_product as $sale_pro)
-                            <div class="col-sm-3">
+                            <div style="padding-bottom: 50px" class="col-sm-3">
                                 <div class="single-item">
                                     <div class="single-item-header">
-                                        <a href="{{route('chi-tiet-san-pham', $sale_pro->id)}}"><img src="source/image/product/{{$sale_pro->image}}" alt="" height="250px"></a>
+                                        <a href="{{route('chi-tiet-san-pham', $sale_pro->id)}}"><img style="width: 100%" src="source/image/product/{{$sale_pro->image}}" alt="" height="250px"></a>
                                     </div>
-                                    <div class="single-item-body">
-                                        <p class="single-item-title">{{$sale_pro->name}}</p>
-                                        <p class="single-item-price" style="font-size: 18px">
+                                    <div style="margin-bottom: 20px" class="single-item-body">
+                                        <p style="font-weight: bold" class="single-item-title">{{$sale_pro->name}}</p>
+                                        <p class="single-item-price" style="font-size: 18px; font-weight: bold">
                                             @if($sale_pro->promotion_price == 0)
-                                                <span class="flash-sale">{{number_format($sale_pro->unit_price)}} đ</span>
+                                                <span  class="flash-sale">{{number_format($sale_pro->unit_price)}} đ</span>
                                             @else
                                                 <span class="flash-sale">{{number_format($sale_pro->promotion_price)}} đ</span>
                                                 <span class="flash-del">{{number_format($sale_pro->unit_price)}} đ</span>
@@ -105,15 +105,15 @@
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href="{{route('themgiohang',$sale_pro->id)}}"><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                        <a style="margin-right: 10px; border-radius: 10px;border: 1px solid #D67C94; background: white;" class="add-to-cart pull-left" href="{{route('themgiohang',$sale_pro->id)}}"><i style="color: #D67C94" class="fa fa-plus"></i></a>
+                                        <a style="background: white;color: #D67C94;font-weight: bold;border-radius: 10px;border: 1px solid #D67C94;outline: none;" class="btn btn-primary" href="{{route('chi-tiet-san-pham', $sale_pro->id)}}">Chi tiết sản phẩm</a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
                         </div>
-                        <div class="space40">&nbsp;</div>
+                        {{-- <div class="space40">&nbsp;</div> --}}
 
                     </div> <!-- .beta-products-list -->
                 </div>
